@@ -5,6 +5,7 @@ import Home from './component/Home'
 import SignUp from './component/SignUp'
 
 import { BrowserRouter as Router, Route, Routes, } from "react-router-dom";
+import ProfilePage from './component/ProfilePage';
 
 
 
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/" element={<Login />} />
         <Route exact path="/home" element={<Home />} />
         <Route exact path="/signUp" element={<SignUp />} />
+        <Route exact path="/profile" element={<ProfilePage />} />
        
 
       </Routes>

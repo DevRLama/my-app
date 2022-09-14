@@ -21,6 +21,7 @@ function Login() {
         console.log(response.data.success)
         if (response.data.success) {
             localStorage.setItem("user", email)
+            localStorage.setItem('auth-token',response.token)
             navigate('/home')
 
             alert(response.data.msg)

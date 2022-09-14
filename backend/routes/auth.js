@@ -31,13 +31,38 @@ router.get('/login',async (req, res) => {
           return
       }
 
+
       success = "true"
-      res.send({ "success": success, "msg": "Succesfully Logged  In" })
+      const token=await user.generateAuthToken()
+      console.log(token)
+      res.send({ "success": success, "msg": "Succesfully Logged  In","token":token})
   }catch(error){
       console.error(error.message)
       res.send({"success": success, "msg": "Invalid Credentials" })
   }
 })
+
+
+
+
+//api for logout
+
+
+router.get('/logout',authUser,async (req, res) => {
+  
+  const userId = req.user;
+  try {
+      const user = await Userlogin.find(userId);
+      var newArray = user.tokens.filter(function(token) { return token !== req.auth-token })
+      newArray.save()
+  }catch(error)
+  {
+
+  }
+      
+})
+
+
 
 
 
